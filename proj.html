@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>eBook Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fff;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .header nav a:hover,
+        .header nav a.active {
+            color: orange;
+        }
+
+        .header .download-btn {
+            background-color: transparent;
+            border: 2px solid orange;
+            padding: 8px 20px;
+            color: orange;
+            border-radius: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .hero {
+            display: flex;
+            padding: 120px 60px 60px;
+            background: url(./businessman-sitting-by-table-cafe.jpg) no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 30px;
+        }
+
+        .hero-content h3 {
+            color: #FFD166;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: 40px;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .hero-buttons {
+            margin-top: 20px;
+        }
+
+        .hero-buttons .btn {
+            background-color: #FF7B54;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .hero-buttons a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .hero-image img {
+            width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .reviews {
+            background-color: #f49c5f;
+            padding: 20px 60px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reviews .avatars img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-left: -10px;
+        }
+
+        .reviews .rating {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .reviews .stars {
+            color: #333;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        .reviews .count {
+            margin-left: 10px;
+            color: #333;
+        }
+
+        .about-book {
+            padding: 80px 60px;
+            background-color: #fff;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-text {
+            max-width: 600px;
+        }
+
+        .about-text h4 {
+            color: #f6b843;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .about-text h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: #e64b3c;
+            font-weight: 600;
+        }
+
+        .preview-section {
+            padding: 80px 60px;
+            background-color: #fff;
+        }
+
+        .preview-header h4 {
+            color: #f6b843;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .preview-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .preview-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .chapter-list {
+            width: 250px;
+            border: 2px solid #f6b843;
+            border-radius: 15px;
+            padding: 20px;
+            background-color: #fff;
+            flex-shrink: 0;
+        }
+
+        .chapter-box {
+            background-color: #f5f7fb;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .chapter-box strong {
+            font-weight: 700;
+        }
+
+        .preview-text {
+            flex: 1;
+            max-width: 700px;
+        }
+
+        .preview-text h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .preview-text p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .quote-box {
+            background-color: #eef2fb;
+            padding: 25px;
+            border-radius: 12px;
+            position: relative;
+            font-style: italic;
+            color: #333;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .quote-icon {
+            font-size: 40px;
+            color: #f6b843;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .small-note {
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* Author Section */
+        .author-section {
+            padding: 60px;
+            background-color: #fff;
+            position: relative;
+        }
+
+
+        .author-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .author-image img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 8px solid #f6b843;
+            object-fit: cover;
+        }
+
+        .author-info {
+            max-width: 600px;
+        }
+
+        .author-info .highlight {
+            color: #f6b843;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .author-info h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .author-info p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 60px;
+            background-color: #fff;
+        }
+
+        .reviews-section .highlight {
+            color: #f6b843;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .reviews-section h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 40px;
+        }
+
+        .review-cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .review-card {
+            background: #2e2e2e;
+            color: white;
+            border-radius: 16px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            background: url(./businessman-sitting-by-table-cafe.jpg);
+        }
+
+        .review-header {
+            background: #f1673b;
+            padding: 20px;
+            border-radius: 12px 12px 0 0;
+            margin: -20px -20px 15px -20px;
+        }
+
+        .review-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .review-header h4 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .review-header p {
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .review-rating {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #f6b843;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-section {
+            background-color: #f6b16d;
+            padding: 80px 20px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .footer-left {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            width: 320px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            z-index: 2;
+        }
+
+        .footer-left h2 {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-left input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .footer-left button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #f6b16d;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .footer-left button:hover {
+            background-color: #e69950;
+        }
+
+        .footer-right {
+            padding-left: 60px;
+            color: white;
+            max-width: 400px;
+        }
+
+        .footer-right h3 {
+            font-size: 16px;
+            color: yellow;
+            margin-bottom: 5px;
+        }
+
+        .footer-right h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: black;
+        }
+
+        .footer-right p {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .footer-right .social-icons {
+            margin-top: 20px;
+        }
+
+        .footer-right .social-icons i {
+            margin-right: 15px;
+            background-color: white;
+            color: #f6b16d;
+            padding: 8px;
+            border-radius: 50%;
+            font-size: 16px;
+            display: inline-block;
+            text-align: center;
+            width: 32px;
+            height: 32px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 13px;
+            margin-top: 40px;
+            color: #ffffff;
+            flex-direction: column;
+            gap: 4px;
+
+        }
+
+        .footer-bottom small {
+            color: #e3a661;
+        }
+
+
+        .social-icons a {
+            margin-right: 15px;
+            background-color: white;
+            color: #f6b16d;
+            padding: 8px;
+            border-radius: 50%;
+            font-size: 16px;
+            display: inline-block;
+            text-align: center;
+            width: 32px;
+            height: 32px;
+            line-height: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #fff3e1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">📘 ebook</div>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">The Book</a>
+            <a href="#">Author</a>
+            <a href="#">Reviews</a>
+            <a href="#">Contact</a>
+        </nav>
+        <a href="#" class="download-btn">Download</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h3>Introducing ebook</h3>
+            <h1>ebook landing page<br>for professionals</h1>
+            <div class="hero-buttons">
+                <a href="#" class="btn">Discover More</a>
+                <a href="#">Meet the Author</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="./education-online-books.png" alt="Online Books">
+        </div>
+    </section>
+
+    <section class="reviews">
+        <div class="avatars">
+            <img src="./portrait-beautiful-young-woman-standing-grey-wall.jpg" alt="">
+            <img src="./portrait-young-redhead-bearded-male.jpg" alt="">
+            <img src="./pretty-blonde-woman.jpg" alt="">
+            <img src="./studio-portrait-emotional-happy-funny-smiling-boyfriend.jpg" alt="">
+        </div>
+        <div class="rating">4.5</div>
+        <div class="stars">★★★★☆</div>
+        <div class="count">2,564 reviews</div>
+    </section>
+    <section class="about-book">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="./tablet-screen-contents.jpg" alt="Tablet Image">
+            </div>
+            <div class="about-text">
+                <h4>Modern & Creative</h4>
+                <h2>About The Book</h2>
+                <p>
+                    Credit goes to <span class="highlight">FreePik</span> for images used in this ebook landing page
+                    template. You may browse FreePik to download more free images for your website.
+                </p>
+                <p>
+                    TemplateMo is one of the best websites to download free CSS templates for any purpose. This is an
+                    ebook landing page template using Bootstrap 5 CSS layout.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="preview-section">
+        <div class="preview-header">
+            <h4>What's inside?</h4>
+            <h2>Preview at glance</h2>
+        </div>
+        <div class="preview-content">
+            <div class="chapter-list">
+                <div class="chapter-box">Introduction</div>
+                <div class="chapter-box"><strong>Chapter 1:</strong> <span>Win back your time</span></div>
+                <div class="chapter-box"><strong>Chapter 2:</strong> <span>Work less, do more</span></div>
+                <div class="chapter-box"><strong>Chapter 3:</strong> <span>Delegate</span></div>
+                <div class="chapter-box"><strong>Chapter 4:</strong> <span>Habits</span></div>
+            </div>
+            <div class="preview-text">
+                <h3>Introducing ebook</h3>
+                <p>This ebook landing page is good to use for any purpose. This layout is based on Bootstrap 5 CSS
+                    framework.</p>
+                <p><strong>What is Content Marketing?</strong> If you are wondering what content marketing is all about,
+                    this is the place to start.</p>
+                <div class="quote-box">
+                    <span class="quote-icon">“</span>
+                    <p>Lorem Ipsum dolor sit amet, consectetur adipiscing kengan omeg kohm tokito</p>
+                </div>
+                <p class="small-note">When you need free HTML CSS templates, please visit Templatemo website which
+                    provides a variety of templates.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="author-section">
+
+        <div class="author-content">
+
+            <div class="author-image">
+                <img src="./portrait-mature-smiling-authoress-sitting-desk.jpg" alt="Prof. Sophia">
+            </div>
+            <div class="author-info">
+                <p class="highlight">Meet Author</p>
+                <h2>Prof. Sophia</h2>
+                <p>This is an ebook landing page template with Bootstrap 5 CSS framework. It is easy to customize with
+                    the use of Bootstrap CSS classes.</p>
+                <p>Lorem ipsum dolor sit amet, consive adipisicing elit, sed do eiusmod. tempor incididunt ut labore.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="reviews-section">
+        <p class="highlight center">Reviews</p>
+        <h2 class="center">What people saying...</h2>
+        <div class="review-cards">
+
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="./portrait-beautiful-young-woman-standing-grey-wall.jpg" alt="Sandy">
+                    <h4>Sandy</h4>
+                    <p>Artist</p>
+                </div>
+                <div class="review-rating">4.5 ★★★★☆</div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </div>
+
+
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="./portrait-young-redhead-bearded-male.jpg" alt="John">
+                    <h4>John</h4>
+                    <p>Producer</p>
+                </div>
+                <div class="review-rating">3.5 ★★★☆☆</div>
+                <p>If you need some specific CSS templates, you can Google with keywords such as templatemo one-page,
+                    templatemo portfolio, etc.</p>
+            </div>
+
+
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="./pretty-blonde-woman.jpg" alt="Candy">
+                    <h4>Candy</h4>
+                    <p>VP, Design</p>
+                </div>
+                <div class="review-rating">5 ★★★★★</div>
+                <p>Please tell your friends about our website that we provide 100% free CSS templates for everyone.
+                    Thank you for using our templates.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-section">
+        <div class="footer-left">
+            <h2>Get your free ebook</h2>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="your@company.com">
+            <button>Download ebook</button>
+        </div>
+
+        <div class="footer-right">
+            <h3>Say hi and talk to us</h3>
+            <h2>Contact</h2>
+            <p><i class="fas fa-map-marker-alt"></i> London, United Kingdom</p>
+            <p>010-020-0340</p>
+            <p>info@company.com</p>
+
+            <div class="social-icons">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-whatsapp"></i>
+            </div>
+
+        </div>
+
+    </section>
+    <footer>
+        <div class="footer-bottom" style="background-color: #e64b3c;">
+            <p>Copyright © 2048 ebook company</p>
+            <small>designed by templatemo</small>
+        </div>
+    </footer>
+</body>
+
+</html>
